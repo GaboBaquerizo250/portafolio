@@ -3,9 +3,9 @@
     --color-link: #07D;
     --color-h: linear-gradient(to bottom, #0BF, #06D);
     --color-body: linear-gradient(90deg, #ABB 0%, #DEE 50%, #ABB 100%);
-    --hover-back: #CDD;
+    --hover-back: #fffa;
     --efect-blur: blur(12px);
-    --borde-line: solid 2px #fff4;
+    --borde-line: solid 1px #fffa;
     font-size: 18px;
     scroll-behavior: smooth;
 }
@@ -27,7 +27,7 @@ body {
 /* . . . . . . . . . . . . . . . . . . . . . . . . */
 
 .gb-icon {
-    width: 2em;
+    width: 1.6em;
 }
 
 .gb-menu {
@@ -48,13 +48,27 @@ body {
         border-radius: 5em;
         display: flex;
         flex-direction: column;
-        gap: .2em;
+        gap: .5em;
         margin-bottom: 1em;
     }
 
     li {
         list-style: none;
         position: relative;
+        label {
+            display: flex;
+            input[type="checkbox"] {
+                display: none;
+            }
+        }
+    }
+
+    a:visited {
+        color: var(--color-text);
+    }
+
+    a:link {
+        color: var(--color-text);
     }
 
     .gb-menu__item {
@@ -96,7 +110,7 @@ body {
         padding: .5em 1em;
         border-radius: 5em;
         background-color: var(--hover-back);
-        top: 15%;
+        top: 10%;
         left: 130%;
     }
     .scheme:hover::after {
@@ -124,6 +138,7 @@ body {
     display: flex;
     justify-content: center;
     article {
+        overflow: hidden;
         width: 80%;
     }
     h2 {
@@ -132,7 +147,7 @@ body {
         text-transform: uppercase;
         letter-spacing: .5em;
         text-align: center;
-        padding: 1em 0;
+        padding: .8em 0;
     }
 }
 
@@ -190,17 +205,11 @@ body {
     }
 }
 
-
-
-
-
 .section__projects {
-    height: 100vh;
+    min-height: 100vh;
     
     section {
         min-height: 50%;
-        /* outline: dashed 2px #0005;
-        background-color: #0001; */
         width: 100%;
         display: flex;
         padding: 1em;
@@ -208,10 +217,6 @@ body {
 
     .description {
         width: 50%;
-        
-        /* outline: dashed 2px #0005;
-        background-color: #0001; */
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -219,7 +224,7 @@ body {
         h3 {
             font-size: 2.5em;
             font-weight: 600;
-            margin-top: 1em;
+            margin-top: .5em;
         }
         p {
             margin: 2em 0;
@@ -238,7 +243,7 @@ body {
                 display: inline-block;
             }
             li:hover {
-                color: var(--color-link);
+                background-color: var(--hover-back);
                 cursor: default;
             }
         }
@@ -250,6 +255,7 @@ body {
             flex-direction: row;
             margin-top: 3em;
             gap: 1em;
+
             span {
                 font-size: 3em;
                 font-weight: 200;
@@ -259,23 +265,89 @@ body {
                 width: 50%;
                 accent-color: var(--color-link);
             }
+            div {
+                display: flex;
+                gap: .5em;
+            }
+            button {
+                color: var(--color-text);
+                display: flex;
+                border: 0;
+                padding: .5em;
+                border-radius: 5em;
+                background: #fff5;
+                outline: var(--borde-line);
+
+                transition-property: color;
+                transition: ease .2s;
+            }
+            button:hover {
+                background-color: var(--hover-back);
+                color: var(--color-link);
+            }
         }
     }
     
     .visualization {
         width: 50%;
-        div {
 
+        div {
             position: absolute;
             right: 0;
-
             width: 45%;
             height: max-content;
-
             overflow: hidden;
+            border-radius: 4px;
+                        
             img {
                 width: 720px;
+                border-radius: 4px;
             }
+            menu {
+                opacity: 0;
+                position: absolute;
+                background-color: #0009;
+                width: 720px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+                
+
+                transition-property: color;
+                transition: ease .2s;
+                ul {
+                    display: flex;
+                    gap: .5em;
+                    li {
+                        list-style: none;
+                        a {
+                            border-radius: 5em;
+                            background-color: #fff;
+                            padding: .2em;
+                            display: flex;
+                            font-size: 2em;
+                            
+                            transition-property: color;
+                            transition: ease .2s;
+                            &:link {
+                                color: var(--color-text);
+                            }
+                            &:visited {
+                                color: var(--color-text);
+                            }
+                            &:hover {
+                                color: var(--color-link);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        div:hover menu {
+            opacity: 1;
         }
     }
 }
