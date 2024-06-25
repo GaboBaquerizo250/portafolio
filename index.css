@@ -1,0 +1,285 @@
+:root{
+    --color-text: #234;
+    --color-link: #07D;
+    --color-h: linear-gradient(to bottom, #0BF, #06D);
+    --color-body: linear-gradient(90deg, #ABB 0%, #DEE 50%, #ABB 100%);
+    --hover-back: #CDD;
+    --efect-blur: blur(12px);
+    --borde-line: solid 2px #fff4;
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    font-family: 'Exo 2';
+    color: var(--color-text);
+    background: rgb(0,0,0);
+    background: var(--color-body);
+}
+
+/* . . . . . . . . . . . . . . . . . . . . . . . . */
+
+.gb-icon {
+    width: 2em;
+}
+
+.gb-menu {
+    height: 100vh;
+    width: max-content;
+    position: fixed;
+    align-content: center;
+
+    nav {
+        padding-left: 2em;
+    }
+
+    ul {
+        backdrop-filter: var(--efect-blur);
+        background-color: #fff2;
+        padding: 6px;
+        outline: var(--borde-line);
+        border-radius: 5em;
+        display: flex;
+        flex-direction: column;
+        gap: .2em;
+        margin-bottom: 1em;
+    }
+
+    li {
+        list-style: none;
+        position: relative;
+    }
+
+    .gb-menu__item {
+        display: flex;
+        background-color: #fff2;
+        padding: .5em;
+        border-radius: 5em;
+
+        transition-property: color;
+        transition: ease .2s;
+    }
+
+    .gb-menu__item:hover {
+        background-color: var(--hover-back);
+        color: var(--color-link);
+        &.github{
+            color: #fff;
+            background-color: #010409;
+            &:hover::after {
+                content: 'GitHub';
+                background-color: #010409;
+            }
+        }
+        &.linkedin{
+            color: #fff;
+            background-color: #0a66c2;
+            &:hover::after {
+                content: 'Linkedin';
+                background-color: #0a66c2;
+            }
+        }
+    }
+
+    .gb-menu__item:hover::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        font-weight: 600;
+        padding: .5em 1em;
+        border-radius: 5em;
+        background-color: var(--hover-back);
+        top: 15%;
+        left: 130%;
+    }
+    .scheme:hover::after {
+        content: 'Modo';
+    }
+    .projects:hover::after {
+        content: 'Proyectos';
+    }
+    .experience:hover::after {
+        content: 'Experiencia';
+    }
+    .skills:hover::after {
+        content: 'Habilidades';
+    }
+    .knowledge:hover::after {
+        content: 'Conocimientos';
+    }
+    .contact:hover::after {
+        content: 'Contacto';
+    }
+}
+
+.gb-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    article {
+        width: 80%;
+    }
+    h2 {
+        color: #0002;
+        font-size: 4em;
+        text-transform: uppercase;
+        letter-spacing: .5em;
+        text-align: center;
+        padding: 1em 0;
+    }
+}
+
+.section__hero {
+    /* outline: dashed 2px #0005; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    
+
+    img {
+        border-radius: 5em;
+        outline: var(--borde-line);
+        width: 160px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 3em;
+        font-weight: bold;
+        strong {
+            font-weight: bold;
+            background: var(--color-h);
+            background-clip: text;
+            color: transparent;
+        }
+    }
+    span {
+        margin: 2em 0 4em 0;
+    }
+}
+
+.scroll-animation {
+    animation: scroll-down 3s infinite;
+}
+
+@keyframes scroll-down {
+    0%, 100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+.section__projects {
+    height: 100vh;
+    
+    section {
+        min-height: 50%;
+        /* outline: dashed 2px #0005;
+        background-color: #0001; */
+        width: 100%;
+        display: flex;
+        padding: 1em;
+    }
+
+    .description {
+        width: 50%;
+        
+        /* outline: dashed 2px #0005;
+        background-color: #0001; */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-top: 1em;
+        }
+        p {
+            margin: 2em 0;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                padding: .5em 1em;
+                margin: 4px;
+                background-color: #fff4;
+                border-radius: 5em;
+                transition-property: color;
+                transition: ease .2s;
+                display: inline-block;
+            }
+            li:hover {
+                color: var(--color-link);
+                cursor: default;
+            }
+        }
+
+        .controller {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 3em;
+            gap: 1em;
+            span {
+                font-size: 3em;
+                font-weight: 200;
+            }
+            progress {
+                height: .5em;
+                width: 50%;
+                accent-color: var(--color-link);
+            }
+        }
+    }
+    
+    .visualization {
+        width: 50%;
+        div {
+
+            position: absolute;
+            right: 0;
+
+            width: 45%;
+            height: max-content;
+
+            overflow: hidden;
+            img {
+                width: 720px;
+            }
+        }
+    }
+}
+
+
+
+
