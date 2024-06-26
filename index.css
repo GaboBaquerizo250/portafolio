@@ -1,27 +1,53 @@
-:root{
-    --color-text: #234;
-    --color-link: #07D;
-    --color-h: linear-gradient(to bottom, #0BF, #06D);
-    --color-body: linear-gradient(90deg, #ABB 0%, #DEE 50%, #ABB 100%);
-    --hover-back: #fffa;
-    --efect-blur: blur(12px);
-    --borde-line: solid 1px #fffa;
-    font-size: 18px;
-    scroll-behavior: smooth;
-}
-
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-weight: normal;
 }
 
-body {
+@font-face {
     font-family: 'Exo 2';
+    src: url('assets/fonts/Exo2.woff2') format('woff2'),
+         url('assets/fonts/Exo2.woff') format('woff'),
+         url('assets/fonts/Exo2.ttf') format('ttf');
+}
+        
+:root{
+    --efect-blur: blur(6px);
+    --borde-line: solid 1px #fffb;
+    --title-size_I: 1em;
+    --title-size_II: 2em;
+    --title-size_III: 3em;
+    
+    scroll-behavior: smooth;
+}
+
+:root[data-theme="light"] {
+    --color-body: linear-gradient(90deg, #b8cee3 0%, #d5e3f1 50%, #b8cee3 100%);
+    --color-grad: linear-gradient(to bottom, #12c2d5, #1c6fff);
+    --color-text: #234;
+    --color-link: #1c6fff;
+    --color-bg-I: #fff2;
+    --color-bg-T: #fff4;
+    --color-bg-H: #fffa;
+}
+
+:root[data-theme="dark"] {
+    --color-body: linear-gradient(90deg, #171b1a 0%, #494e4b 50%, #171b1a 100%);
+    --color-grad: linear-gradient(to bottom, #1ae796, #01b437);
+    --color-text: #eff;
+    --color-link: #1ae796;
+    --color-bg-I: #0002;
+    --color-bg-T: #0004;
+    --color-bg-H: #000a;
+}
+
+body {
+    font-family: 'Exo 2', system-ui, sans-serif;
+    font-size: 18px;
     color: var(--color-text);
-    background: rgb(0,0,0);
     background: var(--color-body);
+    transition: all ease .5s;
 }
 
 /* . . . . . . . . . . . . . . . . . . . . . . . . */
@@ -42,7 +68,7 @@ body {
 
     ul {
         backdrop-filter: var(--efect-blur);
-        background-color: #fff2;
+        background-color: var(--color-bg-I);
         padding: 6px;
         outline: var(--borde-line);
         border-radius: 5em;
@@ -73,7 +99,7 @@ body {
 
     .gb-menu__item {
         display: flex;
-        background-color: #fff2;
+        background-color: var(--color-bg-I);
         padding: .5em;
         border-radius: 5em;
 
@@ -82,7 +108,7 @@ body {
     }
 
     .gb-menu__item:hover {
-        background-color: var(--hover-back);
+        background-color: var(--color-bg-H);
         color: var(--color-link);
         &.github{
             color: #fff;
@@ -109,11 +135,12 @@ body {
         font-weight: 600;
         padding: .5em 1em;
         border-radius: 5em;
-        background-color: var(--hover-back);
+        background-color: var(--color-bg-H);
         top: 10%;
-        left: 130%;
+        left: 100%;
+        margin-left: 1em;   
     }
-    .scheme:hover::after {
+    .theme:hover::after {
         content: 'Modo';
     }
     .projects:hover::after {
@@ -142,8 +169,8 @@ body {
         width: 80%;
     }
     h2 {
-        color: #0002;
-        font-size: 4em;
+        color: var(--color-bg-H);
+        font-size: var(--title-size_III);
         text-transform: uppercase;
         letter-spacing: .5em;
         text-align: center;
@@ -174,7 +201,7 @@ body {
         font-weight: bold;
         strong {
             font-weight: bold;
-            background: var(--color-h);
+            background: var(--color-grad);
             background-clip: text;
             color: transparent;
         }
@@ -236,14 +263,14 @@ body {
             li {
                 padding: .5em 1em;
                 margin: 4px;
-                background-color: #fff4;
+                background-color: var(--color-bg-T);
                 border-radius: 5em;
                 transition-property: color;
                 transition: ease .2s;
                 display: inline-block;
             }
             li:hover {
-                background-color: var(--hover-back);
+                background-color: var(--color-bg-H);
                 cursor: default;
             }
         }
@@ -275,14 +302,14 @@ body {
                 border: 0;
                 padding: .5em;
                 border-radius: 5em;
-                background: #fff5;
+                background: var(--color-bg-T);
                 outline: var(--borde-line);
 
                 transition-property: color;
                 transition: ease .2s;
             }
             button:hover {
-                background-color: var(--hover-back);
+                background-color: var(--color-bg-H);
                 color: var(--color-link);
             }
         }
@@ -296,8 +323,8 @@ body {
             right: 0;
             width: 45%;
             height: max-content;
-            overflow: hidden;
             border-radius: 4px;
+            overflow: hidden;
                         
             img {
                 width: 720px;
@@ -306,7 +333,7 @@ body {
             menu {
                 opacity: 0;
                 position: absolute;
-                background-color: #0009;
+                background-color: #0002;
                 width: 720px;
                 height: 100%;
                 display: flex;
@@ -323,12 +350,15 @@ body {
                     li {
                         list-style: none;
                         a {
-                            border-radius: 5em;
-                            background-color: #fff;
-                            padding: .2em;
                             display: flex;
-                            font-size: 2em;
-                            
+                            padding: .5em;
+                            font-size: var(--title-size_II);
+                            border-radius: 5em;
+                            outline: var(--borde-line);
+                            background-color: var(--color-bg-H);
+                            backdrop-filter: var(--efect-blur);
+                            margin-top: 1em;
+
                             transition-property: color;
                             transition: ease .2s;
                             &:link {
@@ -339,6 +369,8 @@ body {
                             }
                             &:hover {
                                 color: var(--color-link);
+                                background-color: var(--color-bg-H);
+                                
                             }
                         }
                     }
@@ -348,6 +380,9 @@ body {
 
         div:hover menu {
             opacity: 1;
+            a {
+                margin-top: 0;
+            }
         }
     }
 }
