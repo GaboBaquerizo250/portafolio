@@ -23,10 +23,10 @@
 }
 
 :root[data-theme="light"] {
-    --color-body: linear-gradient(90deg, #b8cee3 0%, #d5e3f1 50%, #b8cee3 100%);
+    --color-body: linear-gradient(90deg, #b8cee3 0%, #d9e2ec 50%, #b8cee3 100%);
     --color-grad: linear-gradient(to bottom, #12c2d5, #1c6fff);
     --color-text: #234;
-    --color-link: #1c6fff;
+    --color-link: #12c2d5;
     --color-bg-I: #fff2;
     --color-bg-T: #fff4;
     --color-bg-H: #fffa;
@@ -34,9 +34,9 @@
 
 :root[data-theme="dark"] {
     --color-body: linear-gradient(90deg, #171b1a 0%, #494e4b 50%, #171b1a 100%);
-    --color-grad: linear-gradient(to bottom, #1ae796, #01b437);
+    --color-grad: linear-gradient(to bottom, #0aeb8b, #01b437);
     --color-text: #eff;
-    --color-link: #1ae796;
+    --color-link: #0aeb8b;
     --color-bg-I: #0002;
     --color-bg-T: #0004;
     --color-bg-H: #000a;
@@ -140,6 +140,18 @@ body {
         left: 100%;
         margin-left: 1em;   
     }
+    
+    .dark {
+        display: none;
+    } .theme:has(:checked) {
+        .dark{
+            display: block;
+        }
+        .light{
+            display: none;
+        }
+    }
+
     .theme:hover::after {
         content: 'Modo';
     }

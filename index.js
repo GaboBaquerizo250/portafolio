@@ -1,8 +1,8 @@
 'use strict'
 
-/* Dark Mode + Preferencias de Usuario */
+/* Dark Mode Theme + Preferencias de Usuario */
 
-const THEME_TOGGLE = document.querySelector('.theme-toggle input');
+const THEME_TOGGLE = document.querySelector('.toggle input');
 const ROOT = document.documentElement;
 
 addEventListener('DOMContentLoaded', () => {
