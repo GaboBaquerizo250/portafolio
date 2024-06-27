@@ -14,7 +14,7 @@
         
 :root{
     --efect-blur: blur(6px);
-    --borde-line: solid 1px #fffb;
+    --borde-line: solid 1px #fff8;
     --title-size_I: 1em;
     --title-size_II: 2em;
     --title-size_III: 3em;
@@ -33,13 +33,13 @@
 }
 
 :root[data-theme="dark"] {
-    --color-body: linear-gradient(90deg, #171b1a 0%, #494e4b 50%, #171b1a 100%);
+    --color-body: linear-gradient(90deg, #0b0d11 0%, #1e2630 50%, #0b0d11 100%);
     --color-grad: linear-gradient(to bottom, #0aeb8b, #01b437);
     --color-text: #eff;
     --color-link: #0aeb8b;
     --color-bg-I: #0002;
-    --color-bg-T: #0004;
-    --color-bg-H: #0006;
+    --color-bg-T: #0003;
+    --color-bg-H: #000a;
 }
 
 body {
